@@ -1,8 +1,8 @@
-import { gameBoardController } from './gameBoardController';
+import { showGameBoard } from './showGameBoard';
 import { icons } from './icons';
 import './style.css'
 // import typescriptLogo from './typescript.svg'
 
 const iconList = icons;
-gameBoardController(iconList);
+showGameBoard(iconList);
 console.table(iconList);
