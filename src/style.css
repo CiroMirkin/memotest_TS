@@ -1,8 +1,13 @@
 * {box-sizing: border-box; margin: 0;padding: 0;}
 
 /* #212121 */
+::selection {
+    background-color: #FD773995;
+    color: #000;
+}
+
 body {
-    background-color: #FCFBFC;
+    background-color: #FAFAF9;
 }
 
 header {
@@ -13,19 +18,21 @@ header {
 }
 header h1 {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 2.5ch;
+    font-size: 2.8ch;
     text-transform: uppercase;
     font-weight: 700;
+    color: #000;
 }
 
 main {
-    width: 100%;
+    width: auto;
     display: grid;
     place-items: center;
 }
 
 .board {
     width: auto;
+    min-width: 500px;
     padding: 0 5px;
     margin: 0;
 
@@ -37,6 +44,7 @@ main {
 
 .index {
     width: 7rem;
+    height: 7rem;
     margin: 0.30rem;
     padding: 4px;
 
@@ -51,20 +59,21 @@ main {
     transition: transform 50ms, box-shadow 50ms;
 }
 .index--selected {
-    border: solid 0.125rem #121212a6;
-    box-shadow: 0.25rem 0.25rem #121212a6;
+    background-color: #fd773985;
+    border: solid 0.125rem #12121285;
+    box-shadow: 0.25rem 0.25rem #12121285;
 }
 .index--selected .index__img {
     opacity: 0.7;
 }
 .index--no-selected:hover {
-    transform: translate(0.125rem, 0.125rem);
-    box-shadow: 0.125rem 0.125rem #121212;
+    background-color: #023eae;
 }
 .index__img {
     object-fit: contain;
     width: 100%;
     height: auto;
+    opacity: 1;
 }
 .index--no-selected .index__img {
     opacity: 0;
