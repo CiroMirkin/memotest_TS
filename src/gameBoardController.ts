@@ -13,6 +13,7 @@ const whoPlayerIsPlaying = (): players => {
         playCount=0;
         return "red";
     }
+    return "red";
 }
 
 export const resetGameBoardController = ():void => {
