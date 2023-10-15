@@ -58,8 +58,13 @@ main {
 
     transition: transform 50ms, box-shadow 50ms;
 }
-.index--selected {
+.index--pleyer-one-color {
     background-color: #fd773985;
+}
+.index--pleyer-two-color {
+    background-color: #023eae85;
+}
+.index--selected {
     border: solid 0.125rem #12121285;
     box-shadow: 0.25rem 0.25rem #12121285;
 }

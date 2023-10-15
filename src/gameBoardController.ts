@@ -1,8 +1,19 @@
 
 export { }
 
+type players = 'red' | 'blue';
 let count: 0 | 1 | 2 = 0;
 let firstIndexID: string;
+
+let playCount: 0 | 1 | 2 = 0;
+
+const whoPlayerIsPlaying = (): players => {
+    if(playCount == 1) return 'blue';
+    if(playCount == 2) {
+        playCount=0;
+        return "red";
+    }
+}
 
 export const resetGameBoardController = ():void => {
     count = 0;
@@ -20,6 +31,7 @@ gameBoardHTMLElement.addEventListener('click', async (firstEvent: MouseEvent) =>
             firstIndexID = indexTarget.id;
         }
         if(count == 2) {
+            playCount++;
             count = 0;
             check(firstIndexID, indexTarget.id)
         }
@@ -30,7 +42,11 @@ const isAnIndex = (target: HTMLElement) => target.parentElement?.classList[1] ==
 
 const hideIndex = (index: HTMLElement): void => index.classList.add('index--no-selected');
 const showIndex = (index: HTMLElement): void => index.classList.remove('index--no-selected')
-const selectIndex = (index: HTMLElement): void => index.classList.add('index--selected');
+const selectIndex = ({ index, player }: { index: HTMLElement, player: players}): void => {
+    index.classList.add('index--selected')
+    if(player == 'blue') index.classList.add('index--pleyer-two-color');
+    else if (player == 'red') index.classList.add('index--pleyer-one-color');
+};
 
 const check = (index1ID: string, index2ID: string): void => {
     const index1 = document.getElementById(index1ID)!;
@@ -39,8 +55,9 @@ const check = (index1ID: string, index2ID: string): void => {
     const secondPairID = index2.getAttribute('pairid') as string;
     if (firstPairID == secondPairID && index1ID != index2ID) {
         console.info(firstPairID, " == ", secondPairID);
-        selectIndex(index1);
-        selectIndex(index2);
+        const player = whoPlayerIsPlaying();
+        selectIndex({index: index1, player });
+        selectIndex({index: index2, player});
     }
     else {
         console.info(firstPairID, " != ", secondPairID);
