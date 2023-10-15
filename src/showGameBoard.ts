@@ -19,5 +19,7 @@ export const showGameBoard = (iconList: Array<icon>) => {
     const pictureList = createPictureListForBoard(iconList);
   
     const boardContent = new GameBoardView(pictureList).getHTMLPictureList();
-    document.getElementById('game-board')!.appendChild(boardContent);
+    const gameBoardHTMLELement = document.getElementById('game-board')!
+    gameBoardHTMLELement.innerHTML = '';
+    gameBoardHTMLELement.appendChild(boardContent);
 }

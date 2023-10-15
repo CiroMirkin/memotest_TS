@@ -4,6 +4,11 @@ export { }
 let count: 0 | 1 | 2 = 0;
 let firstIndexID: string;
 
+export const resetGameBoardController = ():void => {
+    count = 0;
+    firstIndexID = '';
+}
+
 const gameBoardHTMLElement = document.getElementById('game-board')!;
 gameBoardHTMLElement.addEventListener('click', async (firstEvent: MouseEvent) => {
     const target = firstEvent.target as HTMLElement;
