@@ -1,34 +1,50 @@
-export {}
 
-let clickState = false;
-let firstPairID: string;
-let fisrtIndexClicked: HTMLElement;
+export { }
+
+let count: number = 0;
+let firstIndexID: string;
 
 const gameBoardHTMLElement = document.getElementById('game-board')!;
-gameBoardHTMLElement.addEventListener('click', (e: MouseEvent) => {
-    const target = e.target as HTMLElement;
-    if(clickState) {
-        target.parentElement?.classList.remove('index--no-selected');
-        const secondPairID = target.parentElement?.getAttribute('pairid') as string;
-        if(firstPairID == secondPairID) {
-            console.info('iguales');
-            target.parentElement?.classList.add('index--selected');
-            fisrtIndexClicked?.classList.add('index--selected');
+gameBoardHTMLElement.addEventListener('click', async (firstEvent: MouseEvent) => {
+    const firstTarget = firstEvent.target as HTMLElement;
+    if (firstTarget.parentElement?.classList[1] == 'index--no-selected') {
+        count++;
+        const indexTarget = firstTarget.parentElement!;
+        showIndex(indexTarget);
+        if(count == 1) firstIndexID = indexTarget.id;
+        if(count == 2) {
+            count = 0;
+            check(firstIndexID, indexTarget.id)
         }
-        else {
-            setTimeout(() => {
-                target.parentElement?.classList.add('index--no-selected');
-                fisrtIndexClicked?.classList.add('index--no-selected');
-            }, 2500);
-        }
-        clickState = false;
+    
     }
-    else if(target.parentElement?.classList[0] == 'index' && target.parentElement?.classList[1] == 'index--no-selected') {
-        target.parentElement?.classList.remove('index--no-selected');
-        if(!clickState) {
-            firstPairID = target.parentElement?.getAttribute('pairid') as string;
-            fisrtIndexClicked = target.parentElement;
-        }
-        clickState = true;
-    }
+
 })
+const hideTwoIndex = (index1: HTMLElement, index2: HTMLElement): void => {
+    index1.classList.add('index--no-selected');
+    index2.classList.add('index--no-selected');
+}
+const showIndex = (index: HTMLElement): void => {
+    index.classList.remove('index--no-selected');
+}
+const selectTwoIndex = (index1: HTMLElement, index2: HTMLElement): void => {
+    index1.classList.add('index--selected');
+    index2.classList.add('index--selected');
+}
+const check = (index1ID: string, index2ID: string): true => {
+    const index1 = document.getElementById(index1ID)!;
+    const index2 = document.getElementById(index2ID)!;
+    const firstPairID = index1.getAttribute('pairid') as string;
+    const secondPairID = index2.getAttribute('pairid') as string;
+    if (firstPairID == secondPairID && index1ID != index2ID) {
+        console.info(firstPairID, " == ", secondPairID);
+        selectTwoIndex(index1, index2);
+    }
+    else {
+        console.info(firstPairID, " != ", secondPairID);
+        setTimeout(() => {
+            hideTwoIndex(index2, index1)
+        }, 500)
+    }
+    return true;
+}
