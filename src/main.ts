@@ -7,8 +7,7 @@ import { ToggleAmountOfPlayers, resetGameBoardController } from './gameBoardCont
 const iconList = icons;
 showGameBoard(iconList);
 
-const resetBtn = document.getElementById("reset-btn")!;
-resetBtn.addEventListener('click', (e) => {
+document.body.addEventListener('click', (e) => {
     const target = e.target as HTMLElement;
     const actionName: string = target.parentElement?.getAttribute('action') || "";
     if(!!actionName) {
@@ -26,13 +25,16 @@ interface action {
 const actionList: Array<action> = [
     {
         name: "reset",
-        do: () => resetGameBoard()
+        do: () => {
+            resetGameBoard()
+        }
     },
     {
         name: "toggleAmountOfPlayers",
         do: () => {
             resetGameBoard();
             toggleAmountOfPLayers();
+            toggleTextOfTheBtnForToggleTheAmountOfPlayers()
         } 
     }
 ]
@@ -42,3 +44,7 @@ const resetGameBoard = () => {
     showGameBoard(iconList);
 }
 const toggleAmountOfPLayers = (): void => ToggleAmountOfPlayers();
+const toggleTextOfTheBtnForToggleTheAmountOfPlayers = () => {
+    const btnForToggleTheAmountOfPlayers = document.getElementById("btn-for-toggle-the-amount-of-players")!
+    btnForToggleTheAmountOfPlayers.innerText == "Two Players" ? "One Player" : "Two Players";
+}
