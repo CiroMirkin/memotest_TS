@@ -6,7 +6,6 @@ import { resetGameBoardController } from './gameBoardController';
 
 const iconList = icons;
 showGameBoard(iconList);
-console.table(iconList);
 
 const resetBtn = document.getElementById("reset-btn")!;
 resetBtn.addEventListener('click', () => {
