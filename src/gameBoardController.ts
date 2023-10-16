@@ -11,9 +11,6 @@ let amountOfPlayers: PlayersAmount = 1;
 let playCount: 0 | 1 | 2 = 0;
 
 export const getAmountOfPLayers = (): PlayersAmount => amountOfPlayers;
-export const ToggleAmountOfPlayers = () => {
-    amountOfPlayers == 1 ? amountOfPlayers = 2 : amountOfPlayers = 1;
-};
 
 const whoPlayerIsPlaying = (): players => {
     if(amountOfPlayers == 1) return "blue";
@@ -25,6 +22,20 @@ const whoPlayerIsPlaying = (): players => {
     }
     return "red";
 }
+
+export const ToggleAmountOfPlayers = () => {
+    const playerColorIDElement = document.getElementById("player-color")!;
+    if(amountOfPlayers == 1) {
+        amountOfPlayers = 2;
+        playerColorIDElement.classList.remove('play-color--hide');
+        playerColorIDElement.classList.add(`play-color--${whoPlayerIsPlaying()}`)
+
+    } 
+    else {
+        amountOfPlayers = 1;
+        playerColorIDElement.classList.add('play-color--hide');
+    }
+};
 
 export const resetGameBoardController = ():void => {
     count = 0;
@@ -72,6 +83,15 @@ const check = (index1ID: string, index2ID: string): void => {
     }
     else {
         playCount++;
+        const playerColorIDElement = document.getElementById("player-color")!;
+        if(playerColorIDElement.classList[1] == 'play-color--blue') {
+            playerColorIDElement.classList.remove('play-color--blue');
+            playerColorIDElement.classList.add('play-color--red');
+        }
+        else {
+            playerColorIDElement.classList.add('play-color--blue');
+            playerColorIDElement.classList.remove('play-color--red');
+        }
         setTimeout(() => {
             hideIndex(index1);
             hideIndex(index2);

@@ -37,6 +37,30 @@ main {
     place-items: center;
 }
 
+.play {
+    width: auto;
+    margin: 5px 0;
+    display: flex;
+    justify-content: center;
+}
+.play-color {
+    display: block;
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 0.25rem;
+    border: solid 0.140rem #121212;
+    opacity: 1;
+}
+.play-color--hide {
+    opacity: 0;
+}
+.play-color--blue {
+    background-color: rgba(3, 62, 173, 0.494);
+}
+.play-color--red {
+    background-color: rgba(253, 119, 57, 0.494);
+}
+
 .board {
     width: auto;
     max-width: 500px;
