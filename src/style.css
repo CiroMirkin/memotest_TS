@@ -12,16 +12,23 @@ body {
 
 header {
     display: 100%;
-    padding: 5px 0;
+    padding: 5px 10px;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
 }
 header h1 {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 2.8ch;
+    font-size: 2.2ch;
     text-transform: uppercase;
     font-weight: 700;
     color: #000;
+}
+header nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2px;
 }
 
 main {
@@ -72,7 +79,7 @@ main {
     opacity: 0;
 }
 .index--no-selected:hover {
-    background-color: #121212;
+    background-color: #12121285;
 }
 .index__img {
     object-fit: contain;
