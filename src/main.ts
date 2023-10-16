@@ -1,7 +1,7 @@
 import { showGameBoard } from './showGameBoard';
 import { icons } from './icons';
 import './style.css'
-import { resetGameBoardController } from './gameBoardController';
+import { ToggleAmountOfPlayers, resetGameBoardController } from './gameBoardController';
 // import typescriptLogo from './typescript.svg'
 
 const iconList = icons;
@@ -27,6 +27,13 @@ const actionList: Array<action> = [
     {
         name: "reset",
         do: () => resetGameBoard()
+    },
+    {
+        name: "toggleAmountOfPlayers",
+        do: () => {
+            resetGameBoard();
+            toggleAmountOfPLayers();
+        } 
     }
 ]
 
@@ -34,3 +41,4 @@ const resetGameBoard = () => {
     resetGameBoardController();
     showGameBoard(iconList);
 }
+const toggleAmountOfPLayers = (): void => ToggleAmountOfPlayers();

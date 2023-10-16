@@ -5,9 +5,19 @@ type players = 'red' | 'blue';
 let count: 0 | 1 | 2 = 0;
 let firstIndexID: string;
 
+type PlayersAmount = 1 | 2;
+
+let amountOfPlayers: PlayersAmount = 1;
 let playCount: 0 | 1 | 2 = 0;
 
+export const getAmountOfPLayers = (): PlayersAmount => amountOfPlayers;
+export const ToggleAmountOfPlayers = () => {
+    amountOfPlayers == 1 ? amountOfPlayers = 2 : amountOfPlayers = 1;
+};
+
 const whoPlayerIsPlaying = (): players => {
+    if(amountOfPlayers == 1) return "blue";
+
     if(playCount == 1) return 'blue';
     if(playCount == 2) {
         playCount=0;
