@@ -57,8 +57,10 @@ const check = (index1ID: string, index2ID: string): void => {
     if (firstPairID == secondPairID && index1ID != index2ID) {
         console.info(firstPairID, " == ", secondPairID);
         const player = whoPlayerIsPlaying();
-        selectIndex({index: index1, player });
-        selectIndex({index: index2, player});
+        setTimeout(() => {
+            selectIndex({index: index1, player });
+            selectIndex({index: index2, player});
+        }, 300)
     }
     else {
         console.info(firstPairID, " != ", secondPairID);
