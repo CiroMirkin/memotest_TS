@@ -72,7 +72,7 @@ main {
     opacity: 0;
 }
 .index--no-selected:hover {
-    background-color: #023eae;
+    background-color: #121212;
 }
 .index__img {
     object-fit: contain;
