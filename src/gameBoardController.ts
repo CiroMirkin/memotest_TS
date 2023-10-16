@@ -32,7 +32,6 @@ gameBoardHTMLElement.addEventListener('click', async (firstEvent: MouseEvent) =>
             firstIndexID = indexTarget.id;
         }
         if(count == 2) {
-            playCount++;
             count = 0;
             check(firstIndexID, indexTarget.id)
         }
@@ -62,6 +61,7 @@ const check = (index1ID: string, index2ID: string): void => {
         }, 300)
     }
     else {
+        playCount++;
         setTimeout(() => {
             hideIndex(index1);
             hideIndex(index2);
