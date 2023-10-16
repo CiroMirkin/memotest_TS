@@ -110,3 +110,17 @@ footer {
     display: flex;
     justify-content: center;
 }
+
+.icon {
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.icon--user {
+    background-image: url(./user.svg);
+}
+.icon--users {
+    background-image: url(./users.svg);
+}

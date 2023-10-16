@@ -34,7 +34,7 @@ const actionList: Array<action> = [
         do: () => {
             resetGameBoard();
             toggleAmountOfPLayers();
-            toggleTextOfTheBtnForToggleTheAmountOfPlayers()
+            toggleIconOfTheBtnForToggleTheAmountOfPlayers()
         } 
     }
 ]
@@ -44,7 +44,12 @@ const resetGameBoard = () => {
     showGameBoard(iconList);
 }
 const toggleAmountOfPLayers = (): void => ToggleAmountOfPlayers();
-const toggleTextOfTheBtnForToggleTheAmountOfPlayers = () => {
-    const btnForToggleTheAmountOfPlayers = document.getElementById("btn-for-toggle-the-amount-of-players")!
-    btnForToggleTheAmountOfPlayers.innerText == "Two Players" ? "One Player" : "Two Players";
+const toggleIconOfTheBtnForToggleTheAmountOfPlayers = () => {
+    const btnForToggleTheAmountOfPlayers = document.querySelector("#btn-for-toggle-the-amount-of-players")!;
+    if(btnForToggleTheAmountOfPlayers.innerHTML = '<span class="icon icon--user"></span>') {
+        btnForToggleTheAmountOfPlayers.innerHTML = '<span class="icon icon--users"></span>'
+    }
+    else {
+        btnForToggleTheAmountOfPlayers.innerHTML = '<span class="icon icon--user"></span>'
+    }
 }
