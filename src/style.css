@@ -32,8 +32,8 @@ main {
 
 .board {
     width: auto;
-    min-width: 500px;
-    padding: 0 5px;
+    max-width: 500px;
+    padding: 0 4px 0 2px;
     margin: 0;
 
     display: grid;
@@ -43,8 +43,8 @@ main {
 }
 
 .index {
-    width: 7rem;
-    height: 7rem;
+    max-width: 7rem;
+    max-height: 7rem;
     margin: 0.30rem;
     padding: 4px;
 
