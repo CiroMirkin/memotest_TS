@@ -46,7 +46,7 @@ const resetGameBoard = () => {
 const toggleAmountOfPLayers = (): void => ToggleAmountOfPlayers();
 const toggleIconOfTheBtnForToggleTheAmountOfPlayers = () => {
     const btnForToggleTheAmountOfPlayers = document.querySelector("#btn-for-toggle-the-amount-of-players")!;
-    if(btnForToggleTheAmountOfPlayers.innerHTML = '<span class="icon icon--user"></span>') {
+    if(btnForToggleTheAmountOfPlayers.innerHTML == '<span class="icon icon--user"></span>') {
         btnForToggleTheAmountOfPlayers.innerHTML = '<span class="icon icon--users"></span>'
     }
     else {
