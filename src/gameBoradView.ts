@@ -24,7 +24,7 @@ class GameBoardView implements gameBoardView {
       return pictureElement;
     }
     getHTMLPictureList(): DocumentFragment {
-      const pictureListElement = document.createDocumentFragment();;
+      const pictureListElement = document.createDocumentFragment();
       this.pictures.forEach(picture =>
         pictureListElement.appendChild(this.convertPictureToHTMLElement(picture))
       );
