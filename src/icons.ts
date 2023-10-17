@@ -6,46 +6,46 @@ export interface icon {
 export const icons: Array<icon> = [ 
     {
       pairID: "1",
-      src: "icons/pic (1).svg",
+      src: "svg",
     },
     {
       pairID: "2",
-      src: "icons/pic (2).svg",
+      src: "svg",
     },
     {
       pairID: "3",
-      src: "icons/pic (3).svg",
+      src: "svg",
     },
     {
       pairID: "4",
-      src: "icons/pic (4).svg",
+      src: "svg",
     },
     {
       pairID: "5",
-      src: "icons/pic (5).svg",
+      src: "svg",
     },
     {
       pairID: "6",
-      src: "icons/pic (6).svg",
+      src: "svg",
     },
     
     {
       pairID: "7",
-      src: "icons/pic (7).svg",
+      src: "svg",
     },
     
     {
       pairID: "8",
-      src: "icons/pic (8).svg",
+      src: "svg",
     },
     
     {
       pairID: "9",
-      src: "icons/pic (9).svg",
+      src: "svg",
     },
     
     {
       pairID: "10",
-      src: "icons/pic (10).svg",
+      src: "isvg",
     },
 ];
