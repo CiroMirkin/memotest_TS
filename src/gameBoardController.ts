@@ -83,18 +83,18 @@ const check = (index1ID: string, index2ID: string): void => {
     }
     else {
         playCount++;
-        const playerColorIDElement = document.getElementById("player-color")!;
-        if(playerColorIDElement.classList[1] == 'play-color--blue') {
-            playerColorIDElement.classList.remove('play-color--blue');
-            playerColorIDElement.classList.add('play-color--red');
-        }
-        else {
-            playerColorIDElement.classList.add('play-color--blue');
-            playerColorIDElement.classList.remove('play-color--red');
-        }
         setTimeout(() => {
             hideIndex(index1);
             hideIndex(index2);
+            const playerColorIDElement = document.getElementById("player-color")!;
+            if(playerColorIDElement.classList[1] == 'play-color--blue') {
+                playerColorIDElement.classList.remove('play-color--blue');
+                playerColorIDElement.classList.add('play-color--red');
+            }
+            else {
+                playerColorIDElement.classList.remove('play-color--red');
+                playerColorIDElement.classList.add('play-color--blue');
+            }
         }, 500)
     }
 }
