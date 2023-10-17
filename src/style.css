@@ -102,8 +102,10 @@ main {
 .index--selected .index__img {
     opacity: 0;
 }
-.index--no-selected:hover {
-    background-color: #12121285;
+@media screen and (min-width: 1000px) {
+    .index--no-selected:hover {
+        background-color: #12121285;
+    }
 }
 .index__img {
     object-fit: contain;
