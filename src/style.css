@@ -86,14 +86,14 @@ header nav ul {
     margin: 0;
 
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
 
     list-style: none;
 }
 
 .index {
-    max-width: 7rem;
-    min-width: 3.9rem;
+    max-width: 9rem;
+    min-width: 5rem;
     max-height: 7rem;
     margin: .2rem;
     padding: 0;
