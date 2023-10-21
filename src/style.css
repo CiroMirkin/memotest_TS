@@ -193,13 +193,18 @@ main {
     width: 70%;
     margin-top: 6rem;
     padding-left: 2rem;
+    padding-bottom: 1.6rem;
     font-size: 2ch;
     color: var(--text-color);
 }
 main img {
+    display: block;
     width: 100%;
+    height: auto;
     object-fit: contain;
 }
-main a {
-    font-size: 2.6ch;
+main .main-link {
+    display: block;
+    margin-block: 14px;
+    font-size: 2.4ch;
 }
