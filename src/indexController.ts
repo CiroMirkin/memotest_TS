@@ -35,7 +35,7 @@ export const ToggleAmountOfPlayers = () => {
     }
 };
 
-export const resetGameBoard = ():void => {
+const resetGameBoard = ():void => {
     count = 0;
     playCount = 0;
     firstIndexID = '';
@@ -82,3 +82,10 @@ const check = (index1ID: string, index2ID: string): void => {
         }, 400)
     }
 }
+
+const observerGameBoard = new MutationObserver(() => resetGameBoard())
+observerGameBoard.observe(gameBoardHTMLElement, {
+    attributes: false,
+    childList: true,
+    characterData: false
+})
