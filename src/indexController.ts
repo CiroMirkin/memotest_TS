@@ -24,21 +24,22 @@ const whoPlayerIsPlaying = (): players => {
 }
 
 export const ToggleAmountOfPlayers = () => {
-    const playerColorIDElement = document.getElementById("player-color")!;
+    const colorSignalForPlayer = document.getElementById("player-color")!;
     if(amountOfPlayers == 1) {
         amountOfPlayers = 2;
-        playerColorIDElement.classList.remove('play-color--hide');
-        playerColorIDElement.classList.add(`play-color--${whoPlayerIsPlaying()}`)
-
+        colorSignalForPlayer.classList.remove('play-color--hide');
+        colorSignalForPlayer.classList.add(`play-color--${whoPlayerIsPlaying()}`);
     } 
     else {
         amountOfPlayers = 1;
-        playerColorIDElement.classList.add('play-color--hide');
+        colorSignalForPlayer.classList.add('play-color--hide');
+        colorSignalForPlayer.classList.remove(`play-color--${whoPlayerIsPlaying()}`);
     }
 };
 
 export const resetGameBoard = ():void => {
     count = 0;
+    playCount = 0;
     firstIndexID = '';
 }
 
@@ -48,7 +49,6 @@ gameBoardHTMLElement.addEventListener('click', async (firstEvent: MouseEvent) =>
     if (isAnIndex(target)) {
         count++;
         const indexTarget = target.parentElement!.parentElement!;
-        console.log(indexTarget)
         showIndex(indexTarget);
         if(count == 1) {
             firstIndexID = indexTarget.id;
@@ -87,15 +87,19 @@ const check = (index1ID: string, index2ID: string): void => {
         setTimeout(() => {
             hideIndex(index1);
             hideIndex(index2);
-            const playerColorIDElement = document.getElementById("player-color")!;
-            if(playerColorIDElement.classList[1] == 'play-color--blue') {
-                playerColorIDElement.classList.remove('play-color--blue');
-                playerColorIDElement.classList.add('play-color--red');
-            }
-            else {
-                playerColorIDElement.classList.remove('play-color--red');
-                playerColorIDElement.classList.add('play-color--blue');
-            }
+            
+            if(amountOfPlayers == 2) changeColorSignalForPlayer();
         }, 500)
+    }
+}
+const changeColorSignalForPlayer = () => {
+    const colorSignalForPlayer = document.getElementById("player-color")!;
+    if(colorSignalForPlayer.classList[1] == 'play-color--blue') {
+        colorSignalForPlayer.classList.remove('play-color--blue');
+        colorSignalForPlayer.classList.add('play-color--red');
+    }
+     else {
+        colorSignalForPlayer.classList.remove('play-color--red');
+        colorSignalForPlayer.classList.add('play-color--blue');
     }
 }
