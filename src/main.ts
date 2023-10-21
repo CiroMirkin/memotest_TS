@@ -36,6 +36,10 @@ const actionList: Array<action> = [
             toggleAmountOfPLayers();
             toggleIconOfTheBtnForToggleTheAmountOfPlayers()
         } 
+    },
+    {
+        name: "toggleColorMode",
+        do: () => changeColorMode()
     }
 ]
 
@@ -51,5 +55,16 @@ const toggleIconOfTheBtnForToggleTheAmountOfPlayers = () => {
     }
     else {
         btnForToggleTheAmountOfPlayers.classList.replace('icon--users', 'icon--user')
+    }
+}
+
+const changeColorMode = () => {
+    const bodyElement = document.body;
+    const actualTheme = bodyElement.getAttribute('theme');
+    if(actualTheme == 'light') {
+        bodyElement.setAttribute('theme', 'dark')
+    }
+    else {
+        bodyElement.setAttribute('theme', 'light')
     }
 }

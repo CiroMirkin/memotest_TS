@@ -3,11 +3,22 @@
 /* #212121 */
 ::selection {
     background-color: #FD773995;
+    
     color: #000;
 }
 
+:root {
+    --text-color: #000;
+    --primary-color: #FAFAF9;
+}
+
 body {
-    background-color: #FAFAF9;
+    background-color: var(--primary-color);
+}
+
+body[theme="dark"] {
+    --text-color: #FAFAF9;
+    --primary-color: #212121;
 }
 
 .hide {
@@ -27,7 +38,7 @@ header .h1 {
     font-size: 2.2ch;
     text-transform: uppercase;
     font-weight: 700;
-    color: #000;
+    color: var(--text-color);
 }
 header nav ul {
     list-style: none;
@@ -168,6 +179,12 @@ footer {
 .icon--reset {
     background-image: url(./reset.svg);
 }
+.icon--moon {
+    background-image: url(./moon.svg);
+}
+.icon--sun {
+    background-image: url(./sun.svg);
+}
 
 /* SEO */
 
@@ -176,7 +193,7 @@ main {
     margin-top: 6rem;
     padding-left: 2rem;
     font-size: 2ch;
-    color: #000;
+    color: var(--text-color);
 }
 main img {
     width: 100%;
