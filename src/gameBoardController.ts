@@ -47,7 +47,8 @@ gameBoardHTMLElement.addEventListener('click', async (firstEvent: MouseEvent) =>
     const target = firstEvent.target as HTMLElement;
     if (isAnIndex(target)) {
         count++;
-        const indexTarget = target.parentElement!;
+        const indexTarget = target.parentElement!.parentElement!;
+        console.log(indexTarget)
         showIndex(indexTarget);
         if(count == 1) {
             firstIndexID = indexTarget.id;
@@ -59,7 +60,7 @@ gameBoardHTMLElement.addEventListener('click', async (firstEvent: MouseEvent) =>
     }
 })
 
-const isAnIndex = (target: HTMLElement) => target.parentElement?.classList[1] == 'index--no-selected' ? true : false;
+const isAnIndex = (target: HTMLElement) => target.parentElement?.parentElement?.classList[1] == 'index--no-selected' ? true : false;
 
 const hideIndex = (index: HTMLElement): void => index.classList.add('index--no-selected');
 const showIndex = (index: HTMLElement): void => index.classList.remove('index--no-selected')

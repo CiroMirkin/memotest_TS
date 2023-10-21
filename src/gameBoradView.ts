@@ -20,7 +20,7 @@ class GameBoardView implements gameBoardView {
       pictureElement.classList.add(...['index', 'index--no-selected']);
       pictureElement.setAttribute('id', picture.id);
       pictureElement.setAttribute('pairID', picture.pairID);
-      pictureElement.innerHTML = `${picture.src}`;
+      pictureElement.innerHTML = `<div class="index__img-container">${picture.src}</div>`;
       return pictureElement;
     }
     getHTMLPictureList(): DocumentFragment {
