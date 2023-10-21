@@ -173,8 +173,12 @@ footer {
 
 main {
     width: 70%;
-    margin-top: 4rem;
+    margin-top: 6rem;
     padding-left: 2rem;
     font-size: 2ch;
     color: #000;
+}
+main img {
+    width: 100%;
+    object-fit: contain;
 }
