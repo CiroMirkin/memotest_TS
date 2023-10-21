@@ -37,6 +37,7 @@ header .h1 {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 2.2ch;
     text-transform: uppercase;
+    text-wrap: wrap;
     font-weight: 700;
     color: var(--text-color);
 }
@@ -198,4 +199,7 @@ main {
 main img {
     width: 100%;
     object-fit: contain;
+}
+main a {
+    font-size: 2.6ch;
 }
