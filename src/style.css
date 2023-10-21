@@ -10,6 +10,11 @@ body {
     background-color: #FAFAF9;
 }
 
+.hide {
+    display: none;
+    opacity: 0;
+}
+
 header {
     display: 100%;
     padding: 5px 10px;
@@ -17,7 +22,7 @@ header {
     align-items: center;
     justify-content: space-between;
 }
-header h1 {
+header .h1 {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 2.2ch;
     text-transform: uppercase;
@@ -31,7 +36,7 @@ header nav ul {
     gap: 2px;
 }
 
-main {
+.main {
     width: auto;
     display: grid;
     place-items: center;
@@ -162,4 +167,14 @@ footer {
 }
 .icon--reset {
     background-image: url(./reset.svg);
+}
+
+/* SEO */
+
+main {
+    width: 70%;
+    margin-top: 4rem;
+    padding-left: 2rem;
+    font-size: 2ch;
+    color: #000;
 }

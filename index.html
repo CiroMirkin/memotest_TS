@@ -1,10 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Memotest</title>
+    <title>Memotest - Juegos de Memoria Online Gratis para Adultos y Niños</title>
+    <meta name="description" content="Disfruta de nuestros juegos de memoria en línea gratuitos para adultos y niños. ¡Exercita tu cerebro y mejora tu capacidad de memorización con nuestros memotests divertidos y efectivos!">
+    <meta name="keywords" content=" juegos de memoria en línea,, memotest online, memotest gratis, memotests en línea, ejercicios de memoria, capacidad de memorización, juegos de memoria para adultos, juegos de memoria para niños.">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,22 +14,41 @@
   </head>
   <body>
     <header>
-      <h1>memotest</h1>
+      <h1 class="h1">Memotest Juego de memoria</h1>
       <nav>
         <ul>
-          <li><button id="btn-for-toggle-the-amount-of-players" class="btn icon icon--user" action="toggleAmountOfPlayers"></button></li>
+          <li><button id="btn-for-toggle-the-amount-of-players" class="btn icon icon--user" title="Cambiar cantidad de jugadores" action="toggleAmountOfPlayers"></button></li>
         </ul>
       </nav>
     </header>
-    <main>
+    <div class="main">
       <header class="play">
         <div class="play-color play-color--hide" id="player-color"></div>
       </header>
       <ul id="game-board" class="board"></ul>
+      <footer>
+        <button id="reset-btn" class="btn icon icon--reset" title="Reiniciar el juego" action="reset"></button>
+      </footer>
+    </div>
+    <main>
+      <section>
+        <article>
+          <h2>Juegos Gratis Online para Adultos y Niños</h2>
+          <p>
+            Disfruta de este juego de memoria online gratuito y prueba otras tematicas de juegos de memoria. </p>
+            <p> Juega nuestros juegos de memoria para adultos y memotests online en tu tablet, PC, iPad, smartphone, celular o telefono. Aunque el cerebro se desarrolla más durante la infancia, sigue evolucionando a lo largo de la vida. Por eso, ejercitarlo es una excelente manera de mantenerlo en plenitud y mejorar la memoria. Hemos creado memotests para todas las edades en varios niveles de dificultad, desde simples hasta difíciles, para aumentar el desafío paso a paso. El objetivo de este juego es memorizar las figuras e imagenes para encontrar los pares iguales.</p>
+            <p>Puedes volver a <a href="cm-memotest.netlify.app">cm-memotest.netlify.app</a> para jugar gratis nuestros juegos de memoria online para todas las edades. Los juegos de memoria online son útiles para mejorar la capacidad de memorización, estudiar fluidamente y retener conocimientos. Mantén tu memoria activa y despierta ejercitándola mientras te diviertes con nuestros juegos de memoria para todas las edades gratis y online.</p>
+           </article>
+           <article>
+            <h2>¿Que es un memotest?</h2>
+            <p>Memorama, juego de la memoria o memorama es un juego de cartas específicas. El objetivo consiste en encontrar los pares con la misma figura impresa utilizando la memoria. Existen también versiones virtuales. Desde 1973 la palabra Memorama es una marca registrada por la empresa Mexicana Novedades Montecarlo, S.A. de C.V. dedicada a la fabricación y distribución de juegos de mesa.</p>
+            <ul>
+              <li><a href="https://es.wikipedia.org/wiki/Memoria_(juego)">Para mas información sobre Los Juegos de Memoria</a></li>
+              <li><a href="https://listado.mercadolibre.com.ar/juego-de-mesa-memotest">Memotest en Mercado Libre</a></li>
+            </ul>
+           </article>
+      </section>
     </main>
-    <footer>
-      <button id="reset-btn" class="btn icon icon--reset" title="Reset" action="reset"></button>
-    </footer>
     <script type="module" src="/src/main.ts"></script>
     <script type="module" src="./src/gameBoardController.ts"></script>
   </body>
