@@ -26,10 +26,6 @@ export const icons: Array<icon> = [
     src: '<img xmlns="http://www.w3.org/1999/xhtml" id="dictionary-lineal-colored-a" loading="eager" imagename="Dictionary" src="https://assets-global.website-files.com/63a9fb94e473f36dbe99c1b1/64a2fa3e88f0a83348e33724_RaWYRPzPQC3CW9PrWhcg.svg" alt="Dictionary" class="illustrations_image" />'
   },
   {
-    pairID: "6",
-    src: '<img xmlns="http://www.w3.org/1999/xhtml" id="customer-service-agent-lineal-colored-a" loading="eager" imagename="Customer Service Agent" src="https://assets-global.website-files.com/63a9fb94e473f36dbe99c1b1/64a2fa440b7c3d8589a412bb_6XIX0dgVRkyv8rac9ygD.svg" alt="Customer Service Agent" class="illustrations_image" />'
-  },
-  {
     pairID: "7",
     src: '<img xmlns="http://www.w3.org/1999/xhtml" id="spray-paint-lineal-colored" loading="eager" imagename="Spray Paint" src="https://assets-global.website-files.com/63a9fb94e473f36dbe99c1b1/64a2fa4dc8b2c6dc446994df_zeJWanWQHJewk5z5bng4.svg" alt="Spray Paint" class="illustrations_image" />'
   },
@@ -41,8 +37,4 @@ export const icons: Array<icon> = [
     pairID: "9",
     src: '<img xmlns="http://www.w3.org/1999/xhtml" id="chess-piece-lineal-colored-2" loading="eager" imagename="Chess Piece" src="https://assets-global.website-files.com/63a9fb94e473f36dbe99c1b1/64a2fa13942703bb5629346b_qp79ExtkRyKKMTBIMP9x.svg" alt="Chess Piece" class="illustrations_image" />'
   },
-  {
-    pairID: "10",
-    src: '<img xmlns="http://www.w3.org/1999/xhtml" id="chat-lineal-colored-85" loading="eager" imagename="Chat" src="https://assets-global.website-files.com/63a9fb94e473f36dbe99c1b1/64a2fa13c8b2c6dc44694b78_oAHrEgmJSzGkVURcQ5D4.svg" alt="Chat" class="illustrations_image" />'
-  }
 ];
