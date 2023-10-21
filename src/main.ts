@@ -9,7 +9,7 @@ showGameBoard(iconList);
 
 document.body.addEventListener('click', (e) => {
     const target = e.target as HTMLElement;
-    const actionName: string = target.parentElement?.getAttribute('action') || "";
+    const actionName: string = target.getAttribute('action') || "";
     if(!!actionName) {
         actionList.forEach(action => {
             if(action.name == actionName) action.do()
@@ -46,10 +46,10 @@ const resetGameBoard = () => {
 const toggleAmountOfPLayers = (): void => ToggleAmountOfPlayers();
 const toggleIconOfTheBtnForToggleTheAmountOfPlayers = () => {
     const btnForToggleTheAmountOfPlayers = document.querySelector("#btn-for-toggle-the-amount-of-players")!;
-    if(btnForToggleTheAmountOfPlayers.innerHTML == '<span class="icon icon--user"></span>') {
-        btnForToggleTheAmountOfPlayers.innerHTML = '<span class="icon icon--users"></span>'
+    if(btnForToggleTheAmountOfPlayers.classList[2] == 'icon--user') {
+        btnForToggleTheAmountOfPlayers.classList.replace('icon--user', 'icon--users')
     }
     else {
-        btnForToggleTheAmountOfPlayers.innerHTML = '<span class="icon icon--user"></span>'
+        btnForToggleTheAmountOfPlayers.classList.replace('icon--users', 'icon--user')
     }
 }
