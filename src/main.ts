@@ -13,9 +13,9 @@ interface iconListInterface {
 }
 
 let iconList: Array<iconListInterface>;
-let actualIconsList: iconListInterface
+let actualIconsList: iconListInterface;
 
-interface iconPack { iconsImage: string, iconsName: string }
+interface iconPack { iconsImage: string, iconsName: string };
 
 export const getIconsByName = (iconsName: string): Array<icon> => iconList.filter(icons => icons.iconsName == iconsName)[0].icons;
 export const getIConsPackByName = (iconsName: string): iconPack => {
@@ -23,14 +23,14 @@ export const getIConsPackByName = (iconsName: string): iconPack => {
     return { iconsImage: icons.iconsImage, iconsName: icons.iconsName };
 }
 
-const res = await fetch("https://ciromirkin.github.io/memotest_API/icons.txt");
-const iconListFromAPIREST = await res.json();
-iconList = iconListFromAPIREST;
-actualIconsList = iconList[0]
-showGameBoard(actualIconsList.icons);
-
-const iconPacks = iconList.map(({ iconsImage, iconsName }) => ({ iconsImage, iconsName}));
-showIConPacks(iconPacks)
+fetch("https://ciromirkin.github.io/memotest_API/icons.txt")
+    .then(res => res.json()).then(res => {
+        iconList = res;
+        actualIconsList = iconList[0];
+        const iconPacks = iconList.map(({ iconsImage, iconsName }) => ({ iconsImage, iconsName}));
+        showGameBoard(actualIconsList.icons);
+        showIConPacks(iconPacks)
+})
 
 document.body.addEventListener('click', (e) => {
     const target = e.target as HTMLElement;
