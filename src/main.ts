@@ -52,6 +52,7 @@ const actionList: Array<action> = [
         name: "reset",
         do: () => {
             resetGameBoard(actualIconsList.icons)
+            resetIndexControllesGlobalStates();
             hideUserWonSing()
         }
     },
@@ -59,6 +60,7 @@ const actionList: Array<action> = [
         name: "toggleAmountOfPlayers",
         do: () => {
             resetGameBoard(actualIconsList.icons);
+            resetIndexControllesGlobalStates();
             toggleAmountOfPLayers();
             toggleIconOfTheBtnForToggleTheAmountOfPlayers()
         } 
@@ -71,7 +73,6 @@ const actionList: Array<action> = [
 
 export const resetGameBoard = (iconsInGameBoard: Array<icon>) => {
     showGameBoard(iconsInGameBoard);
-    resetIndexControllesGlobalStates();
     actualIconsList = iconList.filter(icons => icons.icons[0].src == iconsInGameBoard[0].src)[0];
 }
 const toggleAmountOfPLayers = (): void => ToggleAmountOfPlayers();

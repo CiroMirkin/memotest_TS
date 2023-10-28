@@ -80,8 +80,8 @@ const check = (index1ID: string, index2ID: string): void => {
         }, 300)
     }
     else {
-        playCount++;
         setTimeout(() => {
+            playCount++;
             hideIndex(index1);
             hideIndex(index2);
             

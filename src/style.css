@@ -198,6 +198,12 @@ header nav ul {
     visibility: hidden;
     opacity: 0;
 }
+.user-won-sing--red .user-won-sing__container {
+    background-color: rgba(253, 119, 57, 0.494);
+}
+.user-won-sing--blue .user-won-sing__container {
+    background-color: rgba(3, 62, 173, 0.494);
+}
 .user-won-sing__container {
     min-width: 260px;
     max-width: 400px;
