@@ -227,9 +227,12 @@ footer {
 }
 
 .icon-packs {
-    width: minmax(300px, 500px);
+    min-width: 300px;
+    max-width: 500px;
+    margin: 2rem 0 0;
+    padding: 0 1rem;
     display: flex;
-    justify-content: left;
+    justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
     list-style: none;
