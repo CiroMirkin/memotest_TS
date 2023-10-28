@@ -92,8 +92,9 @@ header nav ul {
 
 .index {
     max-width: 9rem;
-    min-width: 5rem;
-    max-height: 7rem;
+    min-width: 4rem;
+    min-height: 5rem;
+    max-height: 10rem;
     margin: .2rem;
     padding: 0;
 
