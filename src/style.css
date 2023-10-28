@@ -191,6 +191,48 @@ footer {
     background-image: url(./icons/sun.svg);
 }
 
+.icon-packs {
+    width: minmax(300px, 500px);
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style: none;
+}
+.icon-pack {
+    height: 2.6rem;
+    min-width: 10rem;
+    margin: 6px;
+    
+    display: flex;
+    justify-content: left;
+    
+    background: white;
+    border-radius: 0.25rem;
+    border: solid 0.125rem #121212;
+    box-shadow: 0.25rem 0.25rem #121212;
+}
+.icon-pack__img {
+    box-sizing: border-box;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 4rem;
+    height: 100%;
+    padding: 0 4px;
+    border-right: solid 0.125rem #121212;
+}
+.icon-pack__title {
+    padding-inline: 10px;
+    padding-block-end: 2px;
+    display: flex;
+    align-items: center;
+    font-family: 'IBM Plex Mono', monospace;
+    text-align: left;
+    font-weight: 700;
+    font-size: 2ch;
+}
+
 /* SEO */
 
 main {

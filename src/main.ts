@@ -2,6 +2,7 @@ import { showGameBoard } from './gameBoardController';
 import { icon } from './icons';
 import './style.css'
 import { ToggleAmountOfPlayers } from './indexController';
+import { showIConPacks } from './iconPacksView';
 // import typescriptLogo from './typescript.svg'
 
 interface iconListInterface {
@@ -18,6 +19,9 @@ const iconListFromAPIREST = await res.json();
 iconList = iconListFromAPIREST;
 actualIconsList = iconList[0]
 showGameBoard(actualIconsList.icons);
+
+const iconPacks = iconList.map(({ iconsImage, iconsName }) => ({ iconsImage, iconsName}));
+showIConPacks(iconPacks)
 
 document.body.addEventListener('click', (e) => {
     const target = e.target as HTMLElement;
