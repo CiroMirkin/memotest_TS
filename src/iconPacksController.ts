@@ -1,6 +1,5 @@
 import { getIconsByName, resetGameBoard } from "./main";
 
-export { }
 const iconPacksElement =  document.getElementById('icon-packs')!;
 iconPacksElement.addEventListener('click', e => {
     const target = e.target as HTMLElement;
