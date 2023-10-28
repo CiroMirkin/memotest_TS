@@ -207,6 +207,7 @@ footer {
     display: flex;
     justify-content: left;
     
+    user-select: none;
     background: white;
     border-radius: 0.25rem;
     border: solid 0.125rem #121212;

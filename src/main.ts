@@ -14,6 +14,8 @@ interface iconListInterface {
 let iconList: Array<iconListInterface>;
 let actualIconsList: iconListInterface
 
+export const getIconsByName = (iconsName: string): Array<icon> => iconList.filter(icons => icons.iconsName == iconsName)[0].icons;
+
 const res = await fetch("https://ciromirkin.github.io/memotest_API/icons.txt");
 const iconListFromAPIREST = await res.json();
 iconList = iconListFromAPIREST;
@@ -42,13 +44,13 @@ const actionList: Array<action> = [
     {
         name: "reset",
         do: () => {
-            resetGameBoard()
+            resetGameBoard(actualIconsList.icons)
         }
     },
     {
         name: "toggleAmountOfPlayers",
         do: () => {
-            resetGameBoard();
+            resetGameBoard(actualIconsList.icons);
             toggleAmountOfPLayers();
             toggleIconOfTheBtnForToggleTheAmountOfPlayers()
         } 
@@ -59,8 +61,9 @@ const actionList: Array<action> = [
     }
 ]
 
-const resetGameBoard = () => {
-    showGameBoard(actualIconsList.icons);
+export const resetGameBoard = (iconsInGameBoard: Array<icon>) => {
+    showGameBoard(iconsInGameBoard);
+    actualIconsList = iconList.filter(icons => icons.icons[0].src == iconsInGameBoard[0].src)[0];
 }
 const toggleAmountOfPLayers = (): void => ToggleAmountOfPlayers();
 const toggleIconOfTheBtnForToggleTheAmountOfPlayers = () => {
