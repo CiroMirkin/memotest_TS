@@ -172,19 +172,19 @@ footer {
     background-repeat: no-repeat;
 }
 .icon--user {
-    background-image: url(./user.svg);
+    background-image: url(./icons/user.svg);
 }
 .icon--users {
-    background-image: url(./users.svg);
+    background-image: url(./icons/users.svg);
 }
 .icon--reset {
-    background-image: url(./reset.svg);
+    background-image: url(./icons/reset.svg);
 }
 .icon--moon {
-    background-image: url(./moon.svg);
+    background-image: url(./icons/moon.svg);
 }
 .icon--sun {
-    background-image: url(./sun.svg);
+    background-image: url(./icons/sun.svg);
 }
 
 /* SEO */
