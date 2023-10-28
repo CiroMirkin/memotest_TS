@@ -227,6 +227,11 @@ header nav ul {
 
     transition: transform 50ms, box-shadow 50ms;
 }
+.btn--small {
+    width: 2rem;
+    height: 2rem;
+    box-shadow: 0.125rem 0.125rem var(--border-color);
+}
 .btn:active {
     transform: translate(0.125rem, 0.125rem);
     box-shadow: 0.125rem 0.125rem var(--border-color);
