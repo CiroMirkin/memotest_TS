@@ -162,7 +162,8 @@ header nav ul {
 .user-won-sing {
     position: fixed; 
     width: 100%;
-    top: 44vh;
+    height: 80vh;
+    top: 15vh;
     left: 0;
 
     display: grid;
