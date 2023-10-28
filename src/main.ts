@@ -1,11 +1,23 @@
 import { showGameBoard } from './gameBoardController';
-import { icons } from './icons';
+import { icon } from './icons';
 import './style.css'
 import { ToggleAmountOfPlayers } from './indexController';
 // import typescriptLogo from './typescript.svg'
 
-const iconList = icons;
-showGameBoard(iconList);
+interface iconListInterface {
+    iconsName: string;
+    iconsImage: string;
+    icons: Array<icon>
+}
+
+let iconList: Array<iconListInterface>;
+let actualIconsList: iconListInterface
+
+const res = await fetch("https://ciromirkin.github.io/memotest_API/icons.txt");
+const iconListFromAPIREST = await res.json();
+iconList = iconListFromAPIREST;
+actualIconsList = iconList[0]
+showGameBoard(actualIconsList.icons);
 
 document.body.addEventListener('click', (e) => {
     const target = e.target as HTMLElement;
@@ -44,7 +56,7 @@ const actionList: Array<action> = [
 ]
 
 const resetGameBoard = () => {
-    showGameBoard(iconList);
+    showGameBoard(actualIconsList.icons);
 }
 const toggleAmountOfPLayers = (): void => ToggleAmountOfPlayers();
 const toggleIconOfTheBtnForToggleTheAmountOfPlayers = () => {

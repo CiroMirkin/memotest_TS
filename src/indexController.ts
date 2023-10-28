@@ -41,14 +41,14 @@ const resetGlobalStates = ():void => {
     firstIndexID = '';
 }
 
-const isAnIndex = (target: HTMLElement) => target.parentElement?.parentElement?.classList[1] == 'index--no-selected' ? true : false;
+const isAnIndex = (target: HTMLElement) => target.parentElement?.classList[1] == 'index--no-selected' ? true : false;
 
 const gameBoardHTMLElement = document.getElementById('game-board')!;
 gameBoardHTMLElement.addEventListener('click', async (firstEvent: MouseEvent) => {
     const target = firstEvent.target as HTMLElement;
     if (isAnIndex(target)) {
         count++;
-        const indexTarget = target.parentElement!.parentElement!;
+        const indexTarget = target.parentElement!;
         showIndex(indexTarget);
         if(count == 1) {
             firstIndexID = indexTarget.id;
