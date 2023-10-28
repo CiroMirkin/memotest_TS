@@ -22,7 +22,6 @@ body[theme="dark"] {
 }
 
 .hide {
-    display: none;
     opacity: 0;
 }
 
