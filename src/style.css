@@ -63,7 +63,7 @@ header nav ul {
     margin: 1.6rem 0 1rem;
     padding: 0 1.8rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
@@ -92,27 +92,6 @@ header nav ul {
     font-size: 1.1ch;
     font-weight: 500;
     color: #212121;
-}
-
-.play-color {
-    display: block;
-    min-width: 8rem;
-    max-width: 10rem;
-    height: 2.2rem;
-    border-radius: 0.25rem;
-    border: solid 0.140rem var(--border-color);
-    box-shadow: 0.15rem 0.15rem var(--border-color);
-    opacity: 1;
-}
-.play-color--hide {
-    opacity: 0;
-    display: none;
-}
-.play-color--blue {
-    background-color: rgba(3, 62, 173, 0.494);
-}
-.play-color--red {
-    background-color: rgba(253, 119, 57, 0.494);
 }
 
 .board {
