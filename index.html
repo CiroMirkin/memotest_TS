@@ -20,14 +20,18 @@
       <h1 class="h1">Memotest</h1>
       <nav>
         <ul>
-          <li><button id="btn-for-toggle-the-amount-of-players" class="btn icon icon--users" title="Cambiar cantidad de jugadores" action="toggleAmountOfPlayers"></button></li>
           <li><button id="btn-for-toggle-the-color-mode" class="btn icon icon--moon" title="Cambiar a tema oscuro o claro" action="toggleColorMode"></button></li>
         </ul>
       </nav>
     </header>
     <div class="main">
-      <header class="play">
+      <header class="main__header">
         <div class="play-color play-color--hide" id="player-color"></div>
+        <div class="actual-icons-pack">
+          <div id="actual-icons-pack-image" class="actual-icons-pack__img"></div>
+          <p id="actual-icons-pack-name" class="actual-icons-pack__name">ManyPixels</p>
+        </div>
+        <button id="btn-for-toggle-the-amount-of-players" class="btn icon icon--users" title="Cambiar cantidad de jugadores" action="toggleAmountOfPlayers"></button>
       </header>
       <ul id="game-board" class="board"></ul>
       <footer>

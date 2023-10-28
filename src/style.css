@@ -10,6 +10,7 @@
 :root {
     --text-color: #000;
     --primary-color: #FAFAF9;
+    --border-color: #121212;
     line-height: 1.5;
     font-family: 'Inter', monospace;
 }
@@ -21,6 +22,7 @@ body {
 body[theme="dark"] {
     --text-color: #FAFAF9;
     --primary-color: #212121;
+    --border-color: #000;
 }
 
 .hide {
@@ -28,7 +30,7 @@ body[theme="dark"] {
 }
 
 header {
-    display: 100%;
+    width: 100%;
     padding: 5px 10px;
     display: flex;
     align-items: center;
@@ -55,23 +57,55 @@ header nav ul {
     display: grid;
     place-items: center;
 }
-
-.play {
-    width: auto;
-    margin: 5px 0;
+.main__header {
+    min-width: 340px;
+    max-width: 500px;
+    margin: 1.6rem 0 1rem;
+    padding: 0 1.8rem;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
 }
+
+.actual-icons-pack {
+    width: 6.6rem;
+    height: 2.2rem;
+    display: flex;
+    align-items: center;
+    background: #FAFAF9;
+    border-radius: 0.25rem;
+    border: solid 0.140rem var(--border-color);
+    box-shadow: 0.15rem 0.15rem var(--border-color);
+}
+.actual-icons-pack__img {
+    width: 2rem;
+    height: 100%;
+    border-right: solid 0.140rem var(--border-color);
+    background-image: url(https://assets-global.website-files.com/63a9fb94e473f36dbe99c1b1/64a2fa3a301a6b9c317c705f_t0Fli6xpRum7TSXQDFB3.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.actual-icons-pack__name { 
+    padding-inline: 4px;
+    font-size: 1.1ch;
+    font-weight: 500;
+    color: #212121;
+}
+
 .play-color {
     display: block;
-    width: 1.6rem;
-    height: 1.6rem;
+    min-width: 8rem;
+    max-width: 10rem;
+    height: 2.2rem;
     border-radius: 0.25rem;
-    border: solid 0.140rem #121212;
+    border: solid 0.140rem var(--border-color);
+    box-shadow: 0.15rem 0.15rem var(--border-color);
     opacity: 1;
 }
 .play-color--hide {
     opacity: 0;
+    display: none;
 }
 .play-color--blue {
     background-color: rgba(3, 62, 173, 0.494);
@@ -105,8 +139,8 @@ header nav ul {
 
     background: #FCFBFC;
     border-radius: 0.25rem;
-    border: solid 0.125rem #121212;
-    box-shadow: 0.15rem 0.15rem #121212;
+    border: solid 0.125rem var(--border-color);
+    box-shadow: 0.15rem 0.15rem var(--border-color);
 
     transition: transform 50ms, box-shadow 50ms;
 }
@@ -117,15 +151,15 @@ header nav ul {
     background-color: rgba(3, 62, 173, 0.494);
 }
 .index--selected {
-    border: solid 0.125rem #12121285;
-    box-shadow: 0.25rem 0.25rem #12121285;
+    border: solid 0.125rem #21212185;
+    box-shadow: 0.25rem 0.25rem #21212185;
 }
 .index--selected .index__img-container {
     opacity: 0;
 }
 @media screen and (min-width: 1000px) {
     .index--no-selected:hover {
-        background-color: #12121285;
+        background-color: #21212185;
     }
 }
 .index__img-container {
@@ -172,30 +206,29 @@ header nav ul {
     font-size: 3ch;
     font-weight: 700;
     text-align: center;
-    color: #121212;
+    color: var(--border-color);
 
-    border: solid .125rem #121212;
+    border: solid .125rem var(--border-color);
     background-color: #FAFAF9;
 }
 
 .btn {
     width: 2.2rem;
     height: 2.2rem;
-    margin: 0.30rem;
 
     display: grid;
     place-items: center;
 
     background: white;
     border-radius: 0.25rem;
-    border: solid 0.125rem #121212;
-    box-shadow: 0.25rem 0.25rem #121212;
+    border: solid 0.125rem var(--border-color);
+    box-shadow: 0.25rem 0.25rem var(--border-color);
 
     transition: transform 50ms, box-shadow 50ms;
 }
 .btn:active {
     transform: translate(0.125rem, 0.125rem);
-    box-shadow: 0.125rem 0.125rem #121212;
+    box-shadow: 0.125rem 0.125rem var(--border-color);
 }
 
 footer {
@@ -246,10 +279,10 @@ footer {
     justify-content: left;
     
     user-select: none;
-    background: white;
+    background: #FAFAF9;
     border-radius: 0.25rem;
-    border: solid 0.125rem #121212;
-    box-shadow: 0.25rem 0.25rem #121212;
+    border: solid 0.125rem var(--border-color);
+    box-shadow: 0.25rem 0.25rem var(--border-color);
 }
 .icon-pack__img {
     box-sizing: border-box;
@@ -259,7 +292,7 @@ footer {
     width: 4rem;
     height: 100%;
     padding: 0 4px;
-    border-right: solid 0.125rem #121212;
+    border-right: solid 0.125rem var(--border-color);
 }
 .icon-pack__title {
     padding-inline: 10px;
