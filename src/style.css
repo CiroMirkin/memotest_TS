@@ -10,6 +10,8 @@
 :root {
     --text-color: #000;
     --primary-color: #FAFAF9;
+    line-height: 1.5;
+    font-family: 'Inter', monospace;
 }
 
 body {
@@ -143,6 +145,39 @@ header nav ul {
     opacity: 0;
 }
 
+.user-won-sing {
+    position: fixed; 
+    width: 100%;
+    top: 44vh;
+    left: 0;
+
+    display: grid;
+    place-items: center;
+
+} 
+.user-won-sing--show {
+    opacity: 1;
+    visibility: visible;
+}
+.user-won-sing--hide {   
+    visibility: hidden;
+    opacity: 0;
+}
+.user-won-sing__container {
+    min-width: 260px;
+    max-width: 400px;
+    margin: 0 10px;
+    padding-block: 10px;
+
+    font-size: 3ch;
+    font-weight: 700;
+    text-align: center;
+    color: #121212;
+
+    border: solid .125rem #121212;
+    background-color: #FAFAF9;
+}
+
 .btn {
     width: 2.2rem;
     height: 2.2rem;
@@ -228,7 +263,6 @@ footer {
     padding-block-end: 2px;
     display: flex;
     align-items: center;
-    font-family: 'Inter', monospace;
     text-align: left;
     font-weight: 700;
     font-size: 2ch;

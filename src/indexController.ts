@@ -1,15 +1,18 @@
 import { changeColorSignalForPlayer, hideColorSignalForPlayer, hideIndex, selectIndex, showColorSignalForPlayer, showIndex } from "./indexView";
+import { showUserWonSing } from "./userWonSingView";
 
 export { }
 
 export type players = 'red' | 'blue';
 let count: 0 | 1 | 2 = 0;
 let firstIndexID: string;
-
 type PlayersAmount = 1 | 2;
 
 let amountOfPlayers: PlayersAmount = 1;
 let playCount: 0 | 1 | 2 = 0;
+
+let indexCounterToWin: number = 0;
+const incrementIndexCounterToWin = () => indexCounterToWin++;
 
 export const getAmountOfPLayers = (): PlayersAmount => amountOfPlayers;
 
@@ -39,6 +42,7 @@ export const resetIndexControllesGlobalStates = (): void => {
     count = 0;
     playCount = 0;
     firstIndexID = '';
+    indexCounterToWin = 0;
 }
 
 const isAnIndex = (target: HTMLElement) => target.parentElement?.classList[1] == 'index--no-selected' ? true : false;
@@ -67,6 +71,9 @@ const check = (index1ID: string, index2ID: string): void => {
     const secondPairID = index2.getAttribute('pairid') as string;
     if (firstPairID == secondPairID && index1ID != index2ID) {
         const player = whoPlayerIsPlaying();
+        incrementIndexCounterToWin();
+        const amountOfIndexes = 8;
+        if(indexCounterToWin == amountOfIndexes) showUserWonSing()
         setTimeout(() => {
             selectIndex({index: index1, player });
             selectIndex({index: index2, player});

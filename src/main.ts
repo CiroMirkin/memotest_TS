@@ -3,6 +3,7 @@ import { icon } from './icons';
 import './style.css'
 import { ToggleAmountOfPlayers, resetIndexControllesGlobalStates } from './indexController';
 import { showIConPacks } from './iconPacksView';
+import { hideUserWonSing } from './userWonSingView';
 // import typescriptLogo from './typescript.svg'
 
 interface iconListInterface {
@@ -45,6 +46,7 @@ const actionList: Array<action> = [
         name: "reset",
         do: () => {
             resetGameBoard(actualIconsList.icons)
+            hideUserWonSing()
         }
     },
     {
