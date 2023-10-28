@@ -68,7 +68,8 @@ header nav ul {
 }
 
 .actual-icons-pack {
-    width: 6.6rem;
+    min-width: 6.6rem;
+    max-width: 7rem;
     height: 2.2rem;
     display: flex;
     align-items: center;

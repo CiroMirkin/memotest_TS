@@ -15,7 +15,13 @@ interface iconListInterface {
 let iconList: Array<iconListInterface>;
 let actualIconsList: iconListInterface
 
+interface iconPack { iconsImage: string, iconsName: string }
+
 export const getIconsByName = (iconsName: string): Array<icon> => iconList.filter(icons => icons.iconsName == iconsName)[0].icons;
+export const getIConsPackByName = (iconsName: string): iconPack => {
+    const icons = iconList.filter(icons => icons.iconsName == iconsName)[0];
+    return { iconsImage: icons.iconsImage, iconsName: icons.iconsName };
+}
 
 const res = await fetch("https://ciromirkin.github.io/memotest_API/icons.txt");
 const iconListFromAPIREST = await res.json();

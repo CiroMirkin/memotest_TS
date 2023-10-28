@@ -17,3 +17,8 @@ const getIconPackElement = (iconPack: iconPackInterface): HTMLElement => {
     iconPackElement.innerHTML = `<div class="icon-pack__img" style="background-image: url(${iconPack.iconsImage});"></div><p class="icon-pack__title">${iconPack.iconsName}</p>`
     return iconPackElement
 }
+
+export const changeIconsPackNameAndImageOnScreen = ({ iconsImage, iconsName }: {iconsImage: string, iconsName: string}) => {
+    document.getElementById('actual-icons-pack-image')!.style.backgroundImage = `url(${iconsImage})`;
+    document.getElementById('actual-icons-pack-name')!.innerText = iconsName.trim();
+}
