@@ -3,6 +3,10 @@ import { showUserWonSing } from "./userWonSingView";
 
 export { }
 
+/**
+ * @todo Eliminar el codigo perteneciente al modo multijugador que actualmente no existe.
+ */
+
 export type players = 'red' | 'blue';
 let count: 0 | 1 | 2 = 0;
 let firstIndexID: string;
