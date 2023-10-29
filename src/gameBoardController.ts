@@ -2,24 +2,24 @@ import GameBoardView, { picture } from './gameBoardView';
 import { getID } from './getID';
 import { icon } from './iconInterface';
 
-const convertIConIntoPicture = ({ src, pairID }: icon): picture => ({
+const convertIConIntoIndex = ({ src, pairID }: icon): picture => ({
     src,
     pairID,
     id: getID(),
 });
   
-  const createPictureListForBoard = (icons: Array<icon>): Array<picture> => {
+  const getIndexListForTheGameBoard = (icons: Array<icon>): Array<picture> => {
     const duplicatedIcons = [...icons, ...icons];
-    const pictureList = duplicatedIcons.map((icon) => convertIConIntoPicture(icon));
-    const pictureListForBoard  = pictureList.sort(() => Math.random() - 0.5);
-    return pictureListForBoard;
+    const indexList = duplicatedIcons.map((icon) => convertIConIntoIndex(icon));
+    const indexListForBoard  = indexList.sort(() => Math.random() - 0.5);
+    return indexListForBoard;
 }
   
 export const showGameBoard = (iconList: Array<icon>) => {
-    const pictureList = createPictureListForBoard(iconList);
+    const indexListForGameBoard = getIndexListForTheGameBoard(iconList);
   
-    const boardContent = new GameBoardView(pictureList).getHTMLPictureList();
-    const gameBoardHTMLELement = document.getElementById('game-board')!
-    gameBoardHTMLELement.innerHTML = '';
-    gameBoardHTMLELement.appendChild(boardContent);
+    const indexElementsInTheGameBoard = new GameBoardView(indexListForGameBoard).getHTMLPictureList();
+    const gameBoardELement = document.getElementById('game-board')!
+    gameBoardELement.innerHTML = '';
+    gameBoardELement.appendChild(indexElementsInTheGameBoard);
 }
