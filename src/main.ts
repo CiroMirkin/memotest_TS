@@ -1,5 +1,5 @@
 import { showGameBoard } from './gameBoardController';
-import { icon } from './icons';
+import { icon } from './iconInterface';
 import './style.css'
 import { resetIndexControllesGlobalStates } from './indexController';
 import { showIConPacks } from './iconPacksView';
