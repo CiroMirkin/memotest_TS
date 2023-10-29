@@ -18,7 +18,7 @@ const convertIConIntoIndex = ({ src, pairID }: icon): picture => ({
 export const showGameBoard = (iconList: Array<icon>) => {
     const indexListForGameBoard = getIndexListForTheGameBoard(iconList);
   
-    const indexElementsInTheGameBoard = new GameBoardView(indexListForGameBoard).getHTMLPictureList();
+    const indexElementsInTheGameBoard = new GameBoardView(indexListForGameBoard).getIndexElements();
     const gameBoardELement = document.getElementById('game-board')!
     gameBoardELement.innerHTML = '';
     gameBoardELement.appendChild(indexElementsInTheGameBoard);

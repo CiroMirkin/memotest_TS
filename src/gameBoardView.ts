@@ -6,7 +6,7 @@ export interface picture {
   
 interface gameBoardView {
     pictures: Array<picture>;
-    getHTMLPictureList(): HTMLElement | DocumentFragment;
+    getIndexElements(): HTMLElement | DocumentFragment;
 }
   
 class GameBoardView implements gameBoardView {
@@ -15,7 +15,6 @@ class GameBoardView implements gameBoardView {
       this.pictures = pictures
     }
     private convertPictureToHTMLElement(picture: picture): HTMLElement {
-      // <li class="index index--no-selected" pairID=""><img class="index__img" src="./public/pic (2).png" alt=""></li>
       const pictureElement = document.createElement('li');
       pictureElement.classList.add(...['index', 'index--no-selected']);
       pictureElement.setAttribute('id', picture.id);
@@ -26,7 +25,7 @@ class GameBoardView implements gameBoardView {
       pictureElement.appendChild(pictureInPictureElement);
       return pictureElement;
     }
-    getHTMLPictureList(): DocumentFragment {
+    getIndexElements(): DocumentFragment {
       const pictureListElement = document.createDocumentFragment();
       this.pictures.forEach(picture =>
         pictureListElement.appendChild(this.convertPictureToHTMLElement(picture))
