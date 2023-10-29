@@ -1,6 +1,6 @@
-import GameBoardView, { picture } from './gameBoradView';
+import GameBoardView, { picture } from './gameBoardView';
 import { getID } from './getID';
-import { icon } from './icons';
+import { icon } from './iconInterface';
 
 const convertIConIntoPicture = ({ src, pairID }: icon): picture => ({
     src,
