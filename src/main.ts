@@ -1,7 +1,7 @@
 import { showGameBoard } from './gameBoardController';
 import { icon } from './icons';
 import './style.css'
-import { ToggleAmountOfPlayers, resetIndexControllesGlobalStates } from './indexController';
+import { resetIndexControllesGlobalStates } from './indexController';
 import { showIConPacks } from './iconPacksView';
 import { hideUserWonSing } from './userWonSingView';
 // import typescriptLogo from './typescript.svg'
@@ -57,15 +57,6 @@ const actionList: Array<action> = [
         }
     },
     {
-        name: "toggleAmountOfPlayers",
-        do: () => {
-            resetGameBoard(actualIconsList.icons);
-            resetIndexControllesGlobalStates();
-            toggleAmountOfPLayers();
-            toggleIconOfTheBtnForToggleTheAmountOfPlayers()
-        } 
-    },
-    {
         name: "toggleColorMode",
         do: () => changeColorMode()
     }
@@ -74,16 +65,6 @@ const actionList: Array<action> = [
 export const resetGameBoard = (iconsInGameBoard: Array<icon>) => {
     showGameBoard(iconsInGameBoard);
     actualIconsList = iconList.filter(icons => icons.icons[0].src == iconsInGameBoard[0].src)[0];
-}
-const toggleAmountOfPLayers = (): void => ToggleAmountOfPlayers();
-const toggleIconOfTheBtnForToggleTheAmountOfPlayers = () => {
-    const btnForToggleTheAmountOfPlayers = document.querySelector("#btn-for-toggle-the-amount-of-players")!;
-    if(btnForToggleTheAmountOfPlayers.classList[2] == 'icon--user') {
-        btnForToggleTheAmountOfPlayers.classList.replace('icon--user', 'icon--users')
-    }
-    else {
-        btnForToggleTheAmountOfPlayers.classList.replace('icon--users', 'icon--user')
-    }
 }
 
 const changeColorMode = () => {
