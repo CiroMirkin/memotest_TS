@@ -162,8 +162,8 @@ header nav ul {
 .user-won-sing {
     position: fixed; 
     width: 100%;
-    height: 80vh;
-    top: 15vh;
+    height: 100%;
+    top: 0;
     left: 0;
 
     display: grid;
@@ -299,6 +299,8 @@ footer {
 /* SEO */
 
 main {
+    position: absolute;
+    z-index: -1;
     width: 70%;
     margin-top: 6rem;
     padding-left: 2rem;
