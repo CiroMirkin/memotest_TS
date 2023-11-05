@@ -23,18 +23,19 @@ gameBoardHTMLElement.addEventListener('click', async (firstEvent: MouseEvent) =>
     if (isAnIndex(target)) {
         count++;
         const indexTarget = target.parentElement!;
-        showIndex(indexTarget);
         if(count == 1) {
+            showIndex(indexTarget);
             firstIndexID = indexTarget.id;
         }
         if(count == 2) {
             count = 0;
-            check(firstIndexID, indexTarget.id)
+            showIndex(indexTarget);
+            checkPlay(firstIndexID, indexTarget.id)
         }
     }
 })
 
-const check = (index1ID: string, index2ID: string): void => {
+const checkPlay = (index1ID: string, index2ID: string): void => {
     const index1 = document.getElementById(index1ID)!;
     const index2 = document.getElementById(index2ID)!;
     const firstPairID = index1.getAttribute('pairid') as string;
