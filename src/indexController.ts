@@ -81,7 +81,7 @@ const check = (index1ID: string, index2ID: string): void => {
         setTimeout(() => {
             selectIndex({index: index1, player });
             selectIndex({index: index2, player});
-        }, 300)
+        }, 200)
     }
     else {
         setTimeout(() => {
@@ -90,6 +90,6 @@ const check = (index1ID: string, index2ID: string): void => {
             hideIndex(index2);
             
             if(amountOfPlayers == 2) changeColorSignalForPlayer();
-        }, 400)
+        }, 200)
     }
 }
