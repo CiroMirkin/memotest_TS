@@ -6,7 +6,7 @@ export interface picture {
   
 interface gameBoardView {
     pictures: Array<picture>;
-    getIndexElements(): HTMLElement | DocumentFragment;
+    getCardElements(): HTMLElement | DocumentFragment;
 }
   
 class GameBoardView implements gameBoardView {
@@ -16,16 +16,16 @@ class GameBoardView implements gameBoardView {
     }
     private convertPictureToHTMLElement(picture: picture): HTMLElement {
       const pictureElement = document.createElement('li');
-      pictureElement.classList.add(...['index', 'index--no-selected']);
+      pictureElement.classList.add(...['card', 'card--no-selected']);
       pictureElement.setAttribute('id', picture.id);
       pictureElement.setAttribute('pairid', picture.pairID);
       const pictureInPictureElement = document.createElement('div');
-      pictureInPictureElement.classList.add('index__img-container');
+      pictureInPictureElement.classList.add('card__img-container');
       pictureInPictureElement.style.backgroundImage = `url(${picture.src})`;
       pictureElement.appendChild(pictureInPictureElement);
       return pictureElement;
     }
-    getIndexElements(): DocumentFragment {
+    getCardElements(): DocumentFragment {
       const pictureListElement = document.createDocumentFragment();
       this.pictures.forEach(picture =>
         pictureListElement.appendChild(this.convertPictureToHTMLElement(picture))

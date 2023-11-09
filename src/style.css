@@ -127,7 +127,7 @@ header nav ul {
     list-style: none;
 }
 
-.index {
+.card {
     max-width: 9rem;
     min-width: 4.6rem;
     min-height: 5rem;
@@ -145,25 +145,25 @@ header nav ul {
 
     transition: transform 50ms, box-shadow 50ms;
 }
-.index--pleyer-one-color {
+.card--pleyer-one-color {
     background-color: rgba(253, 119, 57, 0.494);
 }
-.index--pleyer-two-color {
+.card--pleyer-two-color {
     background-color: rgba(3, 62, 173, 0.494);
 }
-.index--selected {
+.card--selected {
     border: solid 0.125rem #21212185;
     box-shadow: 0.25rem 0.25rem #21212185;
 }
-.index--selected .index__img-container {
+.card--selected .card__img-container {
     opacity: 0;
 }
 @media screen and (min-width: 1000px) {
-    .index--no-selected:hover {
+    .card--no-selected:hover {
         background-color: #21212185;
     }
 }
-.index__img-container {
+.card__img-container {
     width: 100%;
     height: 100%;
     background-size: contain;
@@ -171,12 +171,12 @@ header nav ul {
     background-repeat: no-repeat;
     opacity: 1;
 }
-.index__img-container img {
+.card__img-container img {
     object-fit: contain;
     width: 100%;
     height: 100%;
 }
-.index--no-selected .index__img-container {
+.card--no-selected .card__img-container {
     opacity: 0;
 }
 
@@ -276,7 +276,7 @@ footer {
 
 main {
     position: absolute;
-    z-index: -1;
+    z-card: -1;
     width: 70%;
     margin-top: 6rem;
     padding-left: 2rem;

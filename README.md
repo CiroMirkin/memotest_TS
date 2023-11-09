@@ -25,3 +25,7 @@ Puedes construir el proyecto con:
 ```
 npm run build
 ```
+
+## Glosario
+
+* card - Es una tarjeta dentro del tablero.

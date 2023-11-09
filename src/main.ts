@@ -1,7 +1,7 @@
 import { showGameBoard } from './gameBoardController';
 import { icon } from './iconInterface';
 import './style.css'
-import { resetIndexControllesGlobalStates } from './indexController';
+import { resetCardControllesGlobalStates } from './cardController';
 import { showIConPacks } from './iconPacksView';
 import { hideUserWonSing } from './userWonSingView';
 // import typescriptLogo from './typescript.svg'
@@ -52,7 +52,7 @@ const actionList: Array<action> = [
         name: "reset",
         do: () => {
             resetGameBoard(actualIconsList.icons)
-            resetIndexControllesGlobalStates();
+            resetCardControllesGlobalStates();
             hideUserWonSing()
         }
     },
@@ -64,7 +64,7 @@ const actionList: Array<action> = [
 
 export const resetGameBoard = (iconsInGameBoard: Array<icon>) => {
     showGameBoard(iconsInGameBoard);
-    resetIndexControllesGlobalStates();
+    resetCardControllesGlobalStates();
     actualIconsList = iconList.filter(icons => icons.icons[0].src == iconsInGameBoard[0].src)[0];
 }
 
