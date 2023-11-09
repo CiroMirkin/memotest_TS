@@ -67,9 +67,21 @@ header nav ul {
     align-items: center;
 }
 
-.actual-icons-pack {
+.icon-packs {
+    min-width: 300px;
+    max-width: 500px;
+    padding: 0 10px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.icon-pack {
     min-width: 6.6rem;
     max-width: 10rem;
+    margin: 6px;
     height: 2.2rem;
     display: flex;
     align-items: center;
@@ -78,7 +90,7 @@ header nav ul {
     border: solid 0.140rem var(--border-color);
     box-shadow: 0.15rem 0.15rem var(--border-color);
 }
-.actual-icons-pack__img {
+.icon-pack__img {
     width: 2rem;
     height: 100%;
     border-right: solid 0.140rem var(--border-color);
@@ -87,13 +99,22 @@ header nav ul {
     background-position: center;
     background-repeat: no-repeat;
 }
-.actual-icons-pack__name { 
+.icon-pack__name { 
     padding-inline: 6px;
     font-size: 1.1ch;
     font-weight: 500;
     color: #212121;
 }
 
+.footer-with-icon-packs {
+    margin: 2rem 0 0;
+    padding: 0 1rem;
+    display: flex;
+    align-items: start;
+}
+.footer-with-icon-packs__footer-title {
+    padding-block-start: 9px;
+}
 .board {
     width: auto;
     max-width: 500px;
@@ -249,51 +270,6 @@ footer {
 }
 .icon--sun {
     background-image: url(./icons/sun.svg);
-}
-
-.icon-packs {
-    min-width: 300px;
-    max-width: 500px;
-    margin: 2rem 0 0;
-    padding: 0 1rem;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-wrap: wrap;
-    list-style: none;
-}
-.icon-pack {
-    height: 2.6rem;
-    min-width: 10rem;
-    margin: 6px;
-    
-    display: flex;
-    justify-content: left;
-    
-    user-select: none;
-    background: #FAFAF9;
-    border-radius: 0.25rem;
-    border: solid 0.125rem var(--border-color);
-    box-shadow: 0.25rem 0.25rem var(--border-color);
-}
-.icon-pack__img {
-    box-sizing: border-box;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 4rem;
-    height: 100%;
-    padding: 0 4px;
-    border-right: solid 0.125rem var(--border-color);
-}
-.icon-pack__title {
-    padding-inline: 10px;
-    padding-block-end: 2px;
-    display: flex;
-    align-items: center;
-    text-align: left;
-    font-weight: 700;
-    font-size: 2ch;
 }
 
 /* SEO */

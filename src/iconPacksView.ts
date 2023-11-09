@@ -14,7 +14,7 @@ const getIconPackElement = (iconPack: iconPackInterface): HTMLElement => {
     const iconPackElement = document.createElement('li');
     iconPackElement.setAttribute('action', 'iconsPack');
     iconPackElement.classList.add('icon-pack');
-    iconPackElement.innerHTML = `<div class="icon-pack__img" style="background-image: url(${iconPack.iconsImage});"></div><p class="icon-pack__title">${iconPack.iconsName}</p>`
+    iconPackElement.innerHTML = `<div class="icon-pack__img" style="background-image: url(${iconPack.iconsImage});"></div><p class="icon-pack__name">${iconPack.iconsName}</p>`
     return iconPackElement
 }
 
