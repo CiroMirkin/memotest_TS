@@ -13,7 +13,9 @@
     "vite": "^4.4.5"
   },
   "dependencies": {
+    "@types/canvas-confetti": "^1.6.3",
     "@types/uuid": "^9.0.5",
+    "canvas-confetti": "^1.9.0",
     "uuid": "^9.0.1"
   }
 }
