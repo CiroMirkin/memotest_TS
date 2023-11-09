@@ -18,7 +18,7 @@ class GameBoardView implements gameBoardView {
       const pictureElement = document.createElement('li');
       pictureElement.classList.add(...['index', 'index--no-selected']);
       pictureElement.setAttribute('id', picture.id);
-      pictureElement.setAttribute('pairID', picture.pairID);
+      pictureElement.setAttribute('pairid', picture.pairID);
       const pictureInPictureElement = document.createElement('div');
       pictureInPictureElement.classList.add('index__img-container');
       pictureInPictureElement.style.backgroundImage = `url(${picture.src})`;

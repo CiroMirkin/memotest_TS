@@ -64,6 +64,7 @@ const actionList: Array<action> = [
 
 export const resetGameBoard = (iconsInGameBoard: Array<icon>) => {
     showGameBoard(iconsInGameBoard);
+    resetIndexControllesGlobalStates();
     actualIconsList = iconList.filter(icons => icons.icons[0].src == iconsInGameBoard[0].src)[0];
 }
 

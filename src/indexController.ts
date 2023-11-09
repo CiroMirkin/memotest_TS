@@ -22,13 +22,14 @@ gameBoardHTMLElement.addEventListener('click', async (firstEvent: MouseEvent) =>
     const target = firstEvent.target as HTMLElement;
     if (isAnIndex(target)) {
         count++;
-        const indexTarget = target.parentElement!;
-        if(count == 1) {
-            showIndex(indexTarget);
+        if(count === 1) {
+            const indexTarget = target.parentElement!;
             firstIndexID = indexTarget.id;
+            showIndex(indexTarget);
         }
-        if(count == 2) {
-            count = 0;
+        if(count === 2) {
+            count = 1;
+            const indexTarget = target.parentElement!;
             showIndex(indexTarget);
             checkPlay(firstIndexID, indexTarget.id)
         }
