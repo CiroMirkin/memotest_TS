@@ -48,12 +48,12 @@ const checkPlay = (index1ID: string, index2ID: string): void => {
         setTimeout(() => {
             selectIndex({index: index1 });
             selectIndex({index: index2});
-        }, 250)
+        }, 280)
     }
     else {
         setTimeout(() => {
             hideIndex(index1);
             hideIndex(index2);
-        }, 250)
+        }, 280)
     }
 }
