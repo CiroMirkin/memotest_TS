@@ -90,6 +90,8 @@ header nav ul {
     border-radius: 0.25rem;
     border: solid 0.140rem var(--border-color);
     box-shadow: 0.15rem 0.15rem var(--border-color);
+    cursor: default;
+    user-select: none;
 }
 .icon-pack__img {
     width: 2rem;
