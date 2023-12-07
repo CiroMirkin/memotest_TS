@@ -53,9 +53,6 @@ const checkPlay = (card1ID: string, card2ID: string): void => {
         }, 280)
     }
     else {
-        console.log('ere')
-        console.log(card1, card2)
-        console.log(playCount)
         setTimeout(() => {
             hideCard(card1);
             hideCard(card2);
