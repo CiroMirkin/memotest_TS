@@ -116,6 +116,7 @@ header nav ul {
     align-items: start;
 }
 .footer-with-icon-packs__footer-title {
+    color: var(--text-color);
     padding-block-start: 9px;
 }
 .board {
