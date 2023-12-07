@@ -4,7 +4,6 @@ import './style.css'
 import { resetCardControllesGlobalStates } from './cardController';
 import { showIConPacks } from './iconPacksView';
 import { hideUserWonSing } from './userWonSingView';
-// import typescriptLogo from './typescript.svg'
 
 interface iconListInterface {
     iconsName: string;
