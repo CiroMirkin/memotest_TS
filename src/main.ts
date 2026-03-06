@@ -1,7 +1,7 @@
 import { showGameBoard } from './gameBoardController';
 import { icon } from './iconInterface';
 import './style.css'
-import { resetCardControllesGlobalStates } from './cardController';
+import { resetCardControllesGlobalStates, resetGameController } from './cardController';
 import { showIConPacks } from './iconPacksView';
 import { hideUserWonSing } from './userWonSingView';
 
@@ -29,7 +29,7 @@ fetch("https://ciromirkin.github.io/memotest_API/icons.txt")
         const iconPacks = iconList.map(({ iconsImage, iconsName }) => ({ iconsImage, iconsName}));
         showGameBoard(actualIconsList.icons);
         showIConPacks(iconPacks)
-})
+    })
 
 document.body.addEventListener('click', (event: Event) => {
     const target = event.target as HTMLElement;
@@ -51,7 +51,6 @@ const actionList: Array<action> = [
         name: "reset",
         do: () => {
             resetGameBoard(actualIconsList.icons)
-            resetCardControllesGlobalStates();
             hideUserWonSing()
         }
     },
@@ -62,7 +61,7 @@ const actionList: Array<action> = [
 ]
 
 export const resetGameBoard = (iconsInGameBoard: Array<icon>) => {
-    showGameBoard(iconsInGameBoard);
+    resetGameController(iconsInGameBoard);
     resetCardControllesGlobalStates();
     actualIconsList = iconList.filter(icons => icons.icons[0].src == iconsInGameBoard[0].src)[0];
 }
