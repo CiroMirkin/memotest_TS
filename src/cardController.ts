@@ -15,23 +15,20 @@ export const resetCardControllesGlobalStates = (): void => {
     cardCounterToWin = 0;
 }
 
-const isAnCard = (target: HTMLElement) => target.parentElement?.classList[1] == 'card--no-selected' ? true : false;
-
 const gameBoardHTMLElement = document.getElementById('game-board')!;
-gameBoardHTMLElement.addEventListener('click', async (firstEvent: MouseEvent) => {
-    const target = firstEvent.target as HTMLElement;
-    if (isAnCard(target)) {
-        playCount++;
-        if(playCount === 1) {
-            const cardTarget = target.parentElement!;
-            firstCardID = cardTarget.id;
-            showCard(cardTarget);
-        }
-        if(playCount === 2) {
-            const cardTarget = target.parentElement!;
-            showCard(cardTarget);
-            checkPlay(firstCardID, cardTarget.id)
-        }
+gameBoardHTMLElement.addEventListener('click', (event: MouseEvent) => {
+    const target = (event.target as HTMLElement).closest('.card') as HTMLElement | null;
+    if (!target || !target.classList.contains('card--no-selected')) return;
+    
+    playCount++;
+    if(playCount === 1) {
+        firstCardID = target.id;
+        showCard(target);
+    }
+    if(playCount === 2) {
+        const cardTarget = target;
+        showCard(cardTarget);
+        checkPlay(firstCardID, cardTarget.id)
     }
 })
 

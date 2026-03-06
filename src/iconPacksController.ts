@@ -2,8 +2,8 @@ import { changeIconsPackNameAndImageOnScreen } from "./iconPacksView";
 import { getIConsPackByName, getIconsByName, resetGameBoard } from "./main";
 
 const iconPacksElement =  document.getElementById('icon-packs')!;
-iconPacksElement.addEventListener('click', e => {
-    const target = e.target as HTMLElement;
+iconPacksElement.addEventListener('click', (event: Event) => {
+    const target = event.target as HTMLElement;
     const iconPackName = getIconPackName(target);
     resetGameBoard(getIconsByName(iconPackName));
     changeIconsPackNameAndImageOnScreen(getIConsPackByName(iconPackName))

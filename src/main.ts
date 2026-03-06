@@ -31,8 +31,8 @@ fetch("https://ciromirkin.github.io/memotest_API/icons.txt")
         showIConPacks(iconPacks)
 })
 
-document.body.addEventListener('click', (e) => {
-    const target = e.target as HTMLElement;
+document.body.addEventListener('click', (event: Event) => {
+    const target = event.target as HTMLElement;
     const actionName: string = target.getAttribute('action') || "";
     if(!!actionName) {
         actionList.forEach(action => {
@@ -43,7 +43,7 @@ document.body.addEventListener('click', (e) => {
 
 interface action {
     name: string,
-    do: Function
+    do: () => void
 }
 
 const actionList: Array<action> = [
