@@ -11,10 +11,22 @@ interface iconListInterface {
     icons: Array<icon>
 }
 
+interface iconPack { iconsImage: string, iconsName: string };
+
+interface DeckResponse {
+    name: string;
+    coverImage: string;
+    cards: Array<{ matchId: string; image: string }>;
+}
+
 let iconList: Array<iconListInterface>;
 let actualIconsList: iconListInterface;
 
-interface iconPack { iconsImage: string, iconsName: string };
+const mapDeckToIconList = (deck: DeckResponse): iconListInterface => ({
+    iconsName: deck.name,
+    iconsImage: deck.coverImage,
+    icons: deck.cards.map(card => ({ pairID: card.matchId, src: card.image }))
+});
 
 export const getIconsByName = (iconsName: string): Array<icon> => iconList.filter(icons => icons.iconsName == iconsName)[0].icons;
 export const getIConsPackByName = (iconsName: string): iconPack => {
@@ -22,9 +34,9 @@ export const getIConsPackByName = (iconsName: string): iconPack => {
     return { iconsImage: icons.iconsImage, iconsName: icons.iconsName };
 }
 
-fetch("https://ciromirkin.github.io/memotest_API/icons.txt")
-    .then(res => res.json()).then(res => {
-        iconList = res;
+fetch("https://memotest-api.vercel.app/api/all")
+    .then(res => res.json()).then((res: DeckResponse[]) => {
+        iconList = res.map(mapDeckToIconList);
         actualIconsList = iconList[0];
         const iconPacks = iconList.map(({ iconsImage, iconsName }) => ({ iconsImage, iconsName}));
         showGameBoard(actualIconsList.icons);
