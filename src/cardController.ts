@@ -1,59 +1,55 @@
-import { hideCard, selectCard, showCard } from "./cardView";
-import { showUserWonSing } from "./userWonSingView";
+import { getGameState, updateGameState, showGameBoard } from './gameBoardController';
+import { flipCard, checkMatch, hideUnmatchedCards } from './commands/gameCommands';
+import { showUserWonSing } from './userWonSingView';
 
-export { }
+let isProcessing = false;
 
-let playCount: 0 | 1 | 2 = 0;
-let firstCardID: string;
-
-let cardCounterToWin: number = 0;
-const incrementCardCounterToWin = () => cardCounterToWin++;
-
-export const resetCardControllesGlobalStates = (): void => {
-    playCount = 0;
-    firstCardID = '';
-    cardCounterToWin = 0;
-}
+export const resetCardControllesGlobalStates = (): void => {};
 
 const gameBoardHTMLElement = document.getElementById('game-board')!;
+
 gameBoardHTMLElement.addEventListener('click', (event: MouseEvent) => {
-    const target = (event.target as HTMLElement).closest('.card') as HTMLElement | null;
-    if (!target || !target.classList.contains('card--no-selected')) return;
+    if (isProcessing) return;
     
-    playCount++;
-    if(playCount === 1) {
-        firstCardID = target.id;
-        showCard(target);
-    }
-    if(playCount === 2) {
-        const cardTarget = target;
-        showCard(cardTarget);
-        checkPlay(firstCardID, cardTarget.id)
-    }
-})
-
-const checkPlay = (card1ID: string, card2ID: string): void => {
-    const card1 = document.getElementById(card1ID)!;
-    const card2 = document.getElementById(card2ID)!;
-    const firstPairID = card1.getAttribute('pairid') as string;
-    const secondPairID = card2.getAttribute('pairid') as string;
-    if (firstPairID === secondPairID && card1ID !== card2ID) {
-
-        incrementCardCounterToWin();
-        const amountOfCardes = 8;
-        if(cardCounterToWin == amountOfCardes) showUserWonSing()
-
+    const target = (event.target as HTMLElement).closest('.card') as HTMLElement | null;
+    if (!target) return;
+    
+    const currentState = getGameState();
+    if (!currentState) return;
+    
+    const cardId = target.id;
+    const card = currentState.cards.find(c => c.id === cardId);
+    if (!card || card.isFlipped || card.isMatched) return;
+    
+    const newState = flipCard(currentState, cardId);
+    updateGameState(newState);
+    
+    if (newState.flippedCards.length === 2) {
+        isProcessing = true;
+        
         setTimeout(() => {
-            selectCard({card: card1 });
-            selectCard({card: card2});
-            playCount = 0;
-        }, 280)
+            const checkedState = checkMatch(newState);
+            
+            if (checkedState.matchedPairs > newState.matchedPairs) {
+                updateGameState(checkedState);
+                if (checkedState.isGameWon) {
+                    showUserWonSing();
+                }
+            } else {
+                const hiddenState = hideUnmatchedCards(checkedState);
+                updateGameState(hiddenState);
+            }
+            
+            isProcessing = false;
+        }, 280);
     }
-    else {
-        setTimeout(() => {
-            hideCard(card1);
-            hideCard(card2);
-            playCount = 0;
-        }, 280)
-    }
-}
+});
+
+export const initCardController = (icons: unknown[]): void => {
+    showGameBoard(icons as any);
+};
+
+export const resetGameController = (icons: unknown[]): void => {
+    isProcessing = false;
+    showGameBoard(icons as any);
+};

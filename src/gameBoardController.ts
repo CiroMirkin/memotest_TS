@@ -1,25 +1,25 @@
-import GameBoardView, { picture } from './gameBoardView';
-import { getID } from './getID';
+import { renderGameBoard } from './gameBoardView';
 import { icon } from './iconInterface';
+import { GameState, createInitialState } from './gameState';
 
-const convertIConIntoCard = ({ src, pairID }: icon): picture => ({
-    src,
-    pairID,
-    id: getID(),
-});
-  
-  const getCardListForTheGameBoard = (icons: Array<icon>): Array<picture> => {
-    const duplicatedIcons = [...icons, ...icons];
-    const cardList = duplicatedIcons.map((icon) => convertIConIntoCard(icon));
-    const cardListForBoard  = cardList.sort(() => Math.random() - 0.5);
-    return cardListForBoard;
-}
-  
-export const showGameBoard = (iconList: Array<icon>) => {
-    const cardListForGameBoard = getCardListForTheGameBoard(iconList);
-  
-    const cardElementsInTheGameBoard = new GameBoardView(cardListForGameBoard).getCardElements();
-    const gameBoardELement = document.getElementById('game-board')!
-    gameBoardELement.innerHTML = '';
-    gameBoardELement.appendChild(cardElementsInTheGameBoard);
-}
+let currentGameState: GameState | null = null;
+
+export const getGameState = (): GameState | null => currentGameState;
+
+export const showGameBoard = (icons: icon[]): GameState => {
+    currentGameState = createInitialState(icons);
+    
+    const cardElements = renderGameBoard(currentGameState);
+    const gameBoardElement = document.getElementById('game-board')!;
+    gameBoardElement.innerHTML = '';
+    gameBoardElement.appendChild(cardElements);
+    
+    return currentGameState;
+};
+
+export const updateGameState = (newState: GameState): void => {
+    currentGameState = newState;
+    const gameBoardElement = document.getElementById('game-board')!;
+    gameBoardElement.innerHTML = '';
+    gameBoardElement.appendChild(renderGameBoard(currentGameState));
+};
